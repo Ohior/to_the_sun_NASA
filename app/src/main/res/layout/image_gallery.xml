@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="30dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_tv_image_title"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"/>
+
+    <ImageView
+        android:id="@+id/id_iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/nasa_image" />
+
+    <ImageButton
+        android:id="@+id/id_tv_image_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        android:src="@drawable/ic_expand"
+        android:layout_alignParentBottom="true"
+        android:paddingVertical="15sp"
+        android:alpha="0.5"
+        android:contentDescription="@string/image_information" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_tv_hidden_description"
+        android:visibility="gone"/>
+</RelativeLayout>

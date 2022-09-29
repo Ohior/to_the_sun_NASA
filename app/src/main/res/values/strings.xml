@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">To The Sun</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text">Home Drawer</string>
+    <!-- to toggle the open close button of the navigation drawer -->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="probe_header">Parker Solar Probe Breaks Record, Becomes Closest Spacecraft to Sun.</string>
+    <string name="probe_details1">Parker Solar Probe now holds the record for closest approach to the Sun by a human-made object. The spacecraft passed the current record of 26.55 million miles from the Sun\'s surface on Oct. 29, 2018, at about 1:04 p.m. EDT, as calculated by the Parker Solar Probe team.</string>
+    <string name="probe_details2">The previous record for closest solar approach was set by the German-American Helios 2 spacecraft in April 1976.As the Parker Solar Probe mission progresses, the spacecraft will repeatedly break its own records, with a final close approach of 3.83 million miles from the Sun\'s surface expected in 2024.</string>
+    <string name="probe_details3">“It’s been just 78 days since Parker Solar Probe launched, and we’ve now come closer to our star than any other spacecraft in history,” said Project Manager Andy Driesman, from the Johns Hopkins Applied Physics Laboratory in Laurel, Maryland. “It’s a proud moment for the team, though we remain focused on our first solar encounter, which begins on Oct. 31.”</string>
+    <string name="probe_details4">Parker Solar Probe is also expected to break the record for fastest spacecraft traveling relative to the Sun on Oct. 29 at about 10:54 p.m. EDT. The current record for heliocentric speed is 153,454 miles per hour, set by Helios 2 in April 1976.</string>
+    <string name="probe_details5">The Parker Solar Probe team periodically measures the spacecraft\'s precise speed and position using NASA\'s Deep Space Network, or DSN. The DSN sends a signal to the spacecraft, which then retransmits it back to the DSN, allowing the team to determine the spacecraft\'s speed and position based on the timing and characteristics of the signal. Parker Solar Probe\'s speed and position were calculated using DSN measurements made through Oct. 24, and the team used that information along with known orbital forces to calculate the spacecraft\'s speed and position from that point on.</string>
+    <string name="probe_details6">Parker Solar Probe will begin its first solar encounter on Oct. 31, continuing to fly closer and closer to the Sun\'s surface until it reaches its first perihelion — the point closest to the Sun — at about 10:28 p.m. EST on Nov. 5. The spacecraft will face brutal heat and radiation conditions while providing humanity with unprecedentedly close-up observations of a star and helping us understand phenomena that have puzzled scientists for decades. These observations will add key knowledge to NASA’s efforts to understand the Sun, where changing conditions can propagate out into the solar system, affecting Earth and other worlds.</string>
+    <string name="what_is_parker_solar_probe">What is Parker Solar Probe?</string>
+    <string name="touch_the_sun">NASA\'s Parker Solar Probe is on a mission to "touch the Sun."
+        The spacecraft is flying closer to the Sun’s surface than any spacecraft before it.
+        The mission will revolutionize our understanding of the Sun.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="image_information">image information</string>
+    <string name="nasa_image">nasa image</string>
+    <string name="nasa_apot_image">nasa apot image</string>
+    <string name="string_formatter">%1$s</string>
+    <string name="reload_button">Reload button</string>
+    <string name="fast_rewind">Fast rewind</string>
+    <string name="fast_forward">Fast forward</string>
+    <string name="header_image">Header image</string>
+    <string name="image_documentation">Image Documentation</string>
+    <string name="video_documentation">Video Documentation</string>
+    <string name="loading_please_wait">LOADING!!! Please wait</string>
+</resources>
