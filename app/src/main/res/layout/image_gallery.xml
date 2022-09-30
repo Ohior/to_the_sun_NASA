@@ -23,13 +23,13 @@
         android:id="@+id/id_tv_image_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textStyle="italic"
-        android:src="@drawable/ic_expand"
         android:layout_alignParentBottom="true"
-        android:paddingVertical="15sp"
         android:alpha="0.5"
-        android:contentDescription="@string/image_information" />
+        android:contentDescription="@string/image_information"
+        android:paddingVertical="15sp"
+        android:src="@drawable/ic_expand"
+        android:textSize="25sp"
+        android:textStyle="italic" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

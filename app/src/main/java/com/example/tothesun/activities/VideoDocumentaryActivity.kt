@@ -83,14 +83,14 @@ class VideoDocumentaryActivity : AppCompatActivity() {
             mVideos = ApiManager.loadVideoData(applicationContext)?.videos
             val randomVideo = mVideos!!.shuffled()[0]
             launch(Dispatchers.Main) {
-                idVideoView.setVideoURI(Uri.parse("android.resource://" + packageName + "/" + R.raw.myvideo))
                 mediaController.setAnchorView(idVideoView)
-//                idVideoView.setVideoPath(randomVideo?.url)
+                idVideoView.setVideoPath(randomVideo.url)
                 idVideoView.start()
                 idVideoView.setMediaController(mediaController)
                 idTvVideoTitle.text = randomVideo.title
                 idTvVideoDescription.text = randomVideo.description
             }
+            idVideoView
             idVideoView.setOnPreparedListener {
                 if (idProgressBarLayout.isVisible) {
                     idProgressBarLayout.visibility = LinearLayout.GONE

@@ -30,4 +30,5 @@
     <string name="image_documentation">Image Documentation</string>
     <string name="video_documentation">Video Documentation</string>
     <string name="loading_please_wait">LOADING!!! Please wait</string>
+    <string name="show_image">Show image</string>
 </resources>

@@ -72,12 +72,13 @@ object Tools {
         context: Context,
         view: View,
         gravity: Int = Gravity.BOTTOM,
+        layout: Int = R.layout.popup_layout,
         lambda: ((view: View, popupwin: PopupWindow) -> Unit),
         dismiss: (() -> Unit)
     ) {
         val layoutInflater =
             context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val popupView = layoutInflater.inflate(R.layout.popup_layout, null)
+        val popupView = layoutInflater.inflate(layout, null)
         val popupWindow = PopupWindow(
             popupView,
             LinearLayout.LayoutParams.MATCH_PARENT,

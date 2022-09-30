@@ -2,13 +2,17 @@ package com.example.tothesun.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tothesun.R
 import com.example.tothesun.adapter.GalleryDataclass
 import com.example.tothesun.adapter.ImageGalleryAdapter
 import com.example.tothesun.api.ApiManager
+import com.example.tothesun.tools.Tools
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.*
 import java.net.HttpURLConnection
 import java.net.URL
@@ -44,8 +48,8 @@ class ImageDocumentationActivity : AppCompatActivity() {
         coroutineScope.launch {
             var counter = 0
             val loadimage = ApiManager.loadImageData(applicationContext)
-            loadimage?.images?.shuffled()
-            loadimage?.images?.forEach { each ->
+            val imagelist = loadimage?.images?.shuffled()
+            imagelist?.forEach { each ->
                 val galleryDataclass = GalleryDataclass(
                     image_url = each.url,
                     title = each.title,
@@ -81,6 +85,12 @@ class ImageDocumentationActivity : AppCompatActivity() {
     private fun RecyclerViewClicklistener() {
         imageGalleryAdapter.setOnItemClickListener(object : ImageGalleryAdapter.OnClickListener {
             override fun onItemClick(position: Int, view: View) {
+                Tools.popUpWindow(applicationContext, activityView, Gravity.CENTER, R.layout.picture_popup,
+                    {v, p ->
+                        Picasso.get().load(imageGalleryAdapter.getItem(position).image_url)
+                            .into(v.findViewById<ImageView>(R.id.id_image_popup))
+                    },{}
+                )
             }
 
             override fun onLongItemClick(position: Int, view: View) {

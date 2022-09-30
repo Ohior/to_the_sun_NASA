@@ -1,6 +1,7 @@
 package com.example.tothesun.activities
 
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.tothesun.api.ApiManager
 import com.example.tothesun.tools.Tools
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.*
+import java.net.URL
 
 
 class MainFragment : Fragment() {
@@ -23,6 +25,7 @@ class MainFragment : Fragment() {
     private lateinit var id_progress_bar: ProgressBar
     private lateinit var coroutineScope: CoroutineScope
     private lateinit var coroutineExceptionHandler: CoroutineExceptionHandler
+    private var imageURL: String? = null
 
     override fun onDestroyView() {
         if (coroutineScope.isActive) coroutineScope.cancel()
@@ -63,12 +66,24 @@ class MainFragment : Fragment() {
 
         RunCoroutineScope()
 
+        id_iv_apot_image.setOnClickListener {
+            Tools.popUpWindow(requireContext(), fragmentView, Gravity.CENTER, R.layout.picture_popup,
+                {v, p ->
+                    if (imageURL != null){
+                        Picasso.get().load(imageURL)
+                            .into(v.findViewById<ImageView>(R.id.id_image_popup))
+                    }
+                },{}
+            )
+        }
+
         return fragmentView
     }
 
     private fun RunCoroutineScope() {
         coroutineScope.launch {
             ApiManager.getAstronomyPictureOfTheDay { req, con ->
+                imageURL = req.url
                 if (con?.responseCode == 200) {
                     launch(Dispatchers.Main) {
                         id_progress_bar.visibility = ProgressBar.GONE
