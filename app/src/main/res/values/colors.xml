@@ -10,4 +10,5 @@
 
     <color name="transparent_color">#rrggbb</color>
     <color name="alpha_transparent_color">#aarrggbb</color>
+    <color name="light_grey">#797675</color>
 </resources>

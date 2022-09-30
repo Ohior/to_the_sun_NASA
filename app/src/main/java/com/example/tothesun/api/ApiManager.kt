@@ -24,15 +24,20 @@ object ApiManager {
             val inputStreamReader = InputStreamReader(inputStream, "UTF-8")
             val request = Gson().fromJson(inputStreamReader, PictureOfTheDayDC::class.java)
             function(request, connection)
+            inputStreamReader.close()
+            inputStream.close()
         } else {
             function(PictureOfTheDayDC(title = "Can not locate image At this moment"), null)
         }
     }
 
     fun loadImageData(context: Context): ImagesDataClass? {
-        val json = context.resources.openRawResource(R.raw.resources).bufferedReader()
+        val json = context.resources.openRawResource(R.raw.resources)
+        val jasondata = json.bufferedReader()
             .use { it.readText() }
-        return Gson().fromJson(json, ImagesDataClass::class.java)
+        val data = Gson().fromJson(jasondata, ImagesDataClass::class.java)
+        json.close()
+        return data
     }
 
     fun loadGifData(context: Context): GifsDataClass? {
@@ -41,9 +46,13 @@ object ApiManager {
         return Gson().fromJson(json, GifsDataClass::class.java)
     }
 
-    fun loadVideoData(context: Context): VideosDataClass?{
-        val json = context.resources.openRawResource(R.raw.resources).bufferedReader()
-            .use { it.readText() }
-        return Gson().fromJson(json, VideosDataClass::class.java)
+    fun loadVideoData(context: Context): VideosDataClass? {
+        val json = context.resources.openRawResource(R.raw.resources)
+        val jsondata = json.bufferedReader().use {
+            it.readText()
+        }
+        val data = Gson().fromJson(jsondata, VideosDataClass::class.java)
+        json.close()
+        return data
     }
 }

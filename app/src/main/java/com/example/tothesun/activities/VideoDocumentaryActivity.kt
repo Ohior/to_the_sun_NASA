@@ -1,6 +1,7 @@
 package com.example.tothesun.activities
 
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.tothesun.api.OnSwipeTouchListener
 import com.example.tothesun.tools.DisplayItems
 import com.example.tothesun.tools.Tools
 import kotlinx.coroutines.*
+import kotlin.random.Random
 
 class VideoDocumentaryActivity : AppCompatActivity() {
 
@@ -26,15 +28,32 @@ class VideoDocumentaryActivity : AppCompatActivity() {
     private lateinit var coroutineScope: CoroutineScope
 
     private var mVideos: List<DisplayItems>? = null
+    private var setVideoViewClicked = false
+    private lateinit var coroutineExceptionHandler: CoroutineExceptionHandler
+
 
     override fun onDestroy() {
+        if (idVideoView.isPlaying) {
+            idVideoView.stopPlayback()
+        }
+        this.finish()
+        if (coroutineScope.isActive) coroutineScope.cancel()
         super.onDestroy()
-        if (idVideoView.isPlaying) idVideoView.stopPlayback()
+    }
+
+    override fun onBackPressed() {
+        if (idVideoView.isPlaying) {
+            idVideoView.stopPlayback()
+        }
+        this.finish()
+        if (coroutineScope.isActive) coroutineScope.cancel()
+        super.onBackPressed()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_documentary)
+
         Initializers()
 
         PlayVideo()
@@ -42,7 +61,6 @@ class VideoDocumentaryActivity : AppCompatActivity() {
 //        AnotherWayToPlayVideo()
 
         SwipeListener()
-
     }
 
     private fun SwipeListener() {
@@ -63,20 +81,21 @@ class VideoDocumentaryActivity : AppCompatActivity() {
     private fun PlayVideo() {
         coroutineScope.launch {
             mVideos = ApiManager.loadVideoData(applicationContext)?.videos
-            val randomVideo = mVideos?.random()
+            val randomVideo = mVideos!!.shuffled()[0]
             launch(Dispatchers.Main) {
                 idVideoView.setVideoURI(Uri.parse("android.resource://" + packageName + "/" + R.raw.myvideo))
                 mediaController.setAnchorView(idVideoView)
 //                idVideoView.setVideoPath(randomVideo?.url)
                 idVideoView.start()
                 idVideoView.setMediaController(mediaController)
+                idTvVideoTitle.text = randomVideo.title
+                idTvVideoDescription.text = randomVideo.description
             }
             idVideoView.setOnPreparedListener {
                 if (idProgressBarLayout.isVisible) {
                     idProgressBarLayout.visibility = LinearLayout.GONE
                 }
             }
-            idTvVideoTitle.text = randomVideo?.title
         }
 //        mediaController.hide()
     }
@@ -90,7 +109,10 @@ class VideoDocumentaryActivity : AppCompatActivity() {
         idTvVideoTitle = findViewById(R.id.id_tv_video_title)
 
         mediaController = MediaController(this@VideoDocumentaryActivity)
-        coroutineScope = CoroutineScope(Dispatchers.IO)
+        coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+            throwable.printStackTrace()
+        }
+        coroutineScope = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler)
     }
 
     private fun AnotherWayToPlayVideo() {
@@ -109,5 +131,4 @@ class VideoDocumentaryActivity : AppCompatActivity() {
             }
         }
     }
-
 }

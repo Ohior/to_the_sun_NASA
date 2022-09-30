@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.tothesun.R
 import com.example.tothesun.api.ApiManager
+import com.example.tothesun.tools.Tools
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.*
 
@@ -21,18 +22,24 @@ class MainFragment : Fragment() {
     private lateinit var id_tv_apot_title: TextView
     private lateinit var id_progress_bar: ProgressBar
     private lateinit var coroutineScope: CoroutineScope
+    private lateinit var coroutineExceptionHandler: CoroutineExceptionHandler
 
     override fun onDestroyView() {
-        super.onDestroyView()
-        if (::coroutineScope.isInitialized && coroutineScope.isActive) coroutineScope.cancel()
+        if (coroutineScope.isActive) coroutineScope.cancel()
         activity?.finish()
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        if (coroutineScope.isActive) coroutineScope.cancel()
+        activity?.finish()
+        super.onDestroy()
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activity?.title = "Astronomy Picture of the Day"
-        coroutineScope = CoroutineScope(Dispatchers.IO)
     }
 
     override fun onCreateView(
@@ -46,6 +53,13 @@ class MainFragment : Fragment() {
         id_tv_apot_title = fragmentView.findViewById(R.id.id_tv_apot_title)
         id_iv_apot_image = fragmentView.findViewById(R.id.id_iv_apot_image)
         id_progress_bar = fragmentView.findViewById(R.id.id_progress_bar)
+
+//        coroutineScope exception fix
+        coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+            throwable.printStackTrace()
+        }
+
+        coroutineScope = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler)
 
         RunCoroutineScope()
 

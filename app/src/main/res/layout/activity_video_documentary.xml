@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,32 +29,41 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/id_rv_video_view_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/id_rv_video_view_layout">
+        android:layout_height="wrap_content">
 
 
         <VideoView
             android:id="@+id/id_video_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"/>
-        <TextView
-            android:id="@+id/id_tv_video_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_gravity="bottom" />
     </FrameLayout>
 
     <TextView
-        android:id="@+id/id_tv_video_description"
+        android:id="@+id/id_tv_video_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
+        android:layout_below="@+id/id_rv_video_view_layout"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="italic"
-        android:layout_below="@id/id_rv_video_view_layout"/>
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_tv_video_title">
+        <TextView
+            android:id="@+id/id_tv_video_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:scrollbars="vertical"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+    </ScrollView>
 </RelativeLayout>
