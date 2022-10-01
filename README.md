@@ -27,5 +27,5 @@ The finished product (APK) can be found [here](https://github.com/Ohior/to_the_s
 
 # SCREENSHOT
 <p align="center">
-  <a href="#"><img src=https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img1.png" alt="header" border="0"></a>
+  <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img1.png" alt="header" border="0"></a>
 </p>
