@@ -22,4 +22,20 @@ what is going on in the video
 
 ## Copyright and Privacy
 Although this project can be forked and use as you see fit.
+<<<<<<< HEAD
 This project is meant for NASA and theg Space app challenge
+=======
+This project is meant for NASA and the Space app challenge.
+The finished product (APK) can be found [here](https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/FirstToTheSun.apk)
+
+# SCREENSHOTS
+<p>
+  <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img1.png" alt="header" border="5" width=100 height=200></a>
+   <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img2.png" alt="header" border="5" width=100 height=200></a>
+   <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img3.png" alt="header" border="5" width=100 height=200></a>
+   <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img4.png" alt="header" border="5" width=100 height=200></a>
+   <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img5.png" alt="header" border="5" width=100 height=200></a>
+   <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img6.png" alt="header" border="5" width=100 height=200></a>
+   <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img7.png" alt="header" border="5" width=100 height=200></a>
+</p>
+>>>>>>> 20123c623a73229add2f5791a5b852e06c400723
