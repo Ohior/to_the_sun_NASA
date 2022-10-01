@@ -22,4 +22,4 @@ what is going on in the video
 
 ## Copyright and Privacy
 Although this project can be forked and use as you see fit.
-This project is meant for NASA and the Space app challenge
+This project is meant for NASA and theg Space app challenge
