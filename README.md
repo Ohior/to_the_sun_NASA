@@ -26,7 +26,7 @@ Although this project can be forked and use as you see fit.
 This project is meant for NASA and theg Space app challenge
 =======
 This project is meant for NASA and the Space app challenge.
-The finished product (APK) can be found [here](https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/FirstToTheSun.apk)
+The finished product (APK) can be found [here](https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/)
 
 # SCREENSHOTS
 <p>
