@@ -25,7 +25,7 @@ Although this project can be forked and use as you see fit.
 This project is meant for NASA and the Space app challenge.
 The finished product (APK) can be found [here](https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/FirstToTheSun.apk)
 
-# SCREENSHOT
+# SCREENSHOTS
 <p>
   <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img1.png" alt="header" border="5" width=100 height=200></a>
    <a href="#"><img src="https://github.com/Ohior/to_the_sun_NASA/blob/main/APK/img2.png" alt="header" border="5" width=100 height=200></a>
