@@ -85,7 +85,7 @@ class ImageDocumentationActivity : AppCompatActivity() {
     private fun RecyclerViewClicklistener() {
         imageGalleryAdapter.setOnItemClickListener(object : ImageGalleryAdapter.OnClickListener {
             override fun onItemClick(position: Int, view: View) {
-                Tools.popUpWindow(applicationContext, activityView, Gravity.CENTER, R.layout.picture_popup,
+                Tools.popUpWindowWH(applicationContext, activityView, Gravity.CENTER, R.layout.picture_popup,
                     {v, p ->
                         Picasso.get().load(imageGalleryAdapter.getItem(position).image_url)
                             .into(v.findViewById<ImageView>(R.id.id_image_popup))

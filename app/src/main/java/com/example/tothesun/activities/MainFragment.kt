@@ -14,7 +14,6 @@ import com.example.tothesun.api.ApiManager
 import com.example.tothesun.tools.Tools
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.*
-import java.net.URL
 
 
 class MainFragment : Fragment() {
@@ -52,22 +51,18 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         fragmentView = inflater.inflate(R.layout.fragment_main, container, false)
 
-        id_tv_apot_explanation = fragmentView.findViewById(R.id.id_tv_apot_explanation)
-        id_tv_apot_title = fragmentView.findViewById(R.id.id_tv_apot_title)
-        id_iv_apot_image = fragmentView.findViewById(R.id.id_iv_apot_image)
-        id_progress_bar = fragmentView.findViewById(R.id.id_progress_bar)
+        Initializers()
 
-//        coroutineScope exception fix
-        coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
-            throwable.printStackTrace()
-        }
-
-        coroutineScope = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler)
+        Executions()
 
         RunCoroutineScope()
 
+        return fragmentView
+    }
+
+    private fun Executions() {
         id_iv_apot_image.setOnClickListener {
-            Tools.popUpWindow(requireContext(), fragmentView, Gravity.CENTER, R.layout.picture_popup,
+            Tools.popUpWindowWH(requireContext(), fragmentView, Gravity.CENTER, R.layout.picture_popup,
                 {v, p ->
                     if (imageURL != null){
                         Picasso.get().load(imageURL)
@@ -76,8 +71,19 @@ class MainFragment : Fragment() {
                 },{}
             )
         }
+    }
 
-        return fragmentView
+    private fun Initializers() {
+        id_tv_apot_explanation = fragmentView.findViewById(R.id.id_tv_apot_explanation)
+        id_tv_apot_title = fragmentView.findViewById(R.id.id_tv_apot_title)
+        id_iv_apot_image = fragmentView.findViewById(R.id.id_iv_apot_image)
+        id_progress_bar = fragmentView.findViewById(R.id.id_progress_bar)
+//        coroutineScope exception fix
+        coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+            throwable.printStackTrace()
+        }
+
+        coroutineScope = CoroutineScope(Dispatchers.IO + coroutineExceptionHandler)
     }
 
     private fun RunCoroutineScope() {

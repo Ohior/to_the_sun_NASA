@@ -3,7 +3,6 @@ package com.example.tothesun.tools
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.icu.util.DateInterval
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.Gravity
@@ -83,6 +82,28 @@ object Tools {
             popupView,
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT,
+            true
+        )
+        popupWindow.setOnDismissListener(dismiss)
+        popupWindow.showAtLocation(view, gravity, 0, 0)
+        lambda(popupView, popupWindow)
+    }
+
+    fun popUpWindowWH(
+        context: Context,
+        view: View,
+        gravity: Int = Gravity.BOTTOM,
+        layout: Int = R.layout.popup_layout,
+        lambda: ((view: View, popupwin: PopupWindow) -> Unit),
+        dismiss: (() -> Unit)
+    ) {
+        val layoutInflater =
+            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val popupView = layoutInflater.inflate(layout, null)
+        val popupWindow = PopupWindow(
+            popupView,
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.MATCH_PARENT,
             true
         )
         popupWindow.setOnDismissListener(dismiss)

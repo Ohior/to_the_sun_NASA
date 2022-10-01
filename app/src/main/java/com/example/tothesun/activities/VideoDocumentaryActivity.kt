@@ -28,9 +28,7 @@ class VideoDocumentaryActivity : AppCompatActivity() {
     private lateinit var coroutineScope: CoroutineScope
 
     private var mVideos: List<DisplayItems>? = null
-    private var setVideoViewClicked = false
     private lateinit var coroutineExceptionHandler: CoroutineExceptionHandler
-
 
     override fun onDestroy() {
         if (idVideoView.isPlaying) {
